@@ -1,0 +1,12 @@
+<div class="carousel-container">
+    <button class="carousel-prev" (click)="prevSlide()">‹</button>
+    <div class="carousel">
+      <div class="carousel-items" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)'}">
+        <div class="carousel-item" *ngFor="let item of items">
+          <img [src]="item.image" [alt]="item.name">
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-next" (click)="nextSlide()">›</button>
+  </div>

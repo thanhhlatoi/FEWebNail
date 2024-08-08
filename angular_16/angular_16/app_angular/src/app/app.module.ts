@@ -10,6 +10,8 @@ import { InfoComponent } from './page/info/info.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SlideProductComponent } from './component/slide-product/slide-product.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminComponent,
     InfoComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SlideProductComponent
   ],
   imports: [
     BrowserModule,

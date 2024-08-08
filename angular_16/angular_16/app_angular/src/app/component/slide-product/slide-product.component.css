@@ -1,0 +1,75 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-items {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 300px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+/* //nút chuyển  */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    /* Nền mờ */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.carousel-prev {
+    left: 20px;
+    /* Khoảng cách từ bên trái */
+}
+
+.carousel-next {
+    right: 10px;
+    /* Khoảng cách từ bên phải */
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: rgba(0, 0, 0, 0.7);
+    /* Nền mờ đậm hơn khi hover */
+    transform: translateY(-70%) scale(1.1);
+    /* Phóng to một chút khi hover */
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+    background: rgba(0, 0, 0, 0.9);
+    /* Nền mờ đậm hơn khi nhấn */
+    transform: translateY(-50%) scale(1);
+    /* Quay lại kích thước ban đầu khi nhấn */
+}

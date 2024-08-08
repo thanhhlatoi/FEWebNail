@@ -8,27 +8,40 @@ import { CategoryService } from 'src/app/service/category.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  listCategory: any[] = [];
-  selectedCategory: any;
+  selectedCategory1: any;
+selectedCategory2: any;
+selectedCategory3: any;
+selectedCategory4: any;
+selectedCategory5: any;
 
-  constructor(private categoryService: CategoryService) { }
+constructor(private categoryService: CategoryService) {}
 
-  ngOnInit(): void {
-    this.getCategories();
-  }
+ngOnInit(): void {
+  this.getCategoryById(1); // Gọi danh mục với ID = 1
+  this.getCategoryById(2); // Gọi danh mục với ID = 2
+  this.getCategoryById(3); // Gọi danh mục với ID = 3
+  this.getCategoryById(4); // Gọi danh mục với ID = 4
+  this.getCategoryById(5); // Gọi danh mục với ID = 5
+}
 
-  getCategories(): void {
-    this.categoryService.getCategories().subscribe(
-      data => {
-        this.listCategory = data;
-        if (this.listCategory.length > 0) {
-          // Hiển thị danh mục đầu tiên hoặc bạn có thể chọn một danh mục cụ thể
-          this.selectedCategory = this.listCategory[0];
-        }
-      },
-      error => {
-        console.error('Error fetching categories', error);
+getCategoryById(id: number): void {
+  this.categoryService.getCategoryById(id).subscribe(
+    data => {
+      switch (id) {
+        case 1: this.selectedCategory1 = data; break;
+        case 2: this.selectedCategory2 = data; break;
+        case 3: this.selectedCategory3 = data; break;
+        case 4: this.selectedCategory4 = data; break;
+        case 5: this.selectedCategory5 = data; break;
+        default: break;
       }
-    );
-  }
+    },
+    error => {
+      console.error('Error fetching category by ID', error);
+    }
+  );
+}
+
+  
+
 }
