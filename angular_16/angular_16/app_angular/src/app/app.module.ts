@@ -11,6 +11,8 @@ import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SlideProductComponent } from './component/slide-product/slide-product.component';
+import { NewProductComponent } from './component/new-product/new-product.component';
+import { NewCategoryComponent } from './component/new-category/new-category.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { SlideProductComponent } from './component/slide-product/slide-product.c
     InfoComponent,
     HeaderComponent,
     FooterComponent,
-    SlideProductComponent
+    SlideProductComponent,
+    NewProductComponent,
+    NewCategoryComponent
   ],
   imports: [
     BrowserModule,
