@@ -14,7 +14,7 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @GetMapping
+    @GetMapping("/list")
 
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(this.service.findAll());
@@ -26,8 +26,7 @@ public class ProductController {
         return ResponseEntity.ok(this.service.findById(id));
     }
 
-    @PostMapping
-
+    @PostMapping("/add")
     public ResponseEntity<?> create(@RequestBody final ProductCreateRequest request) {
         return ResponseEntity.ok(this.service.createProduct(request));
     }

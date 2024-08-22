@@ -22,7 +22,7 @@ public class CloudinaryService {
         try {
             final Map result = this.cloudinary.uploader()
                     .upload(file.getBytes(),
-                            Map.of("public_id", "ntt/product/" + fileName));
+                            Map.of("public_id", "ntt/" + fileName));
             final String url = (String) result.get("secure_url");
             final String publicId = (String) result.get("public_id");
             return CloudinaryResponse.builder().publicId(publicId).url(url).build();

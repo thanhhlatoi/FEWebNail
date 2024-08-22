@@ -1,8 +1,13 @@
 package com.example.API.controller;
 
+import com.example.API.dto.request.CategoryCreateRequest;
 import com.example.API.entity.Category;
+import com.example.API.repository.CategoryRepository;
 import com.example.API.service.CategoryService;
+import com.example.API.service.Imlp.CategoryServiveImlp;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,29 +19,37 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @PostMapping("add")
-    public Category addCategory(@RequestBody Category category) {
-        return categoryService.addCategory(category);
+    @Autowired
+    private CategoryServiveImlp Service;
+
+    @PostMapping("/create")
+    public ResponseEntity<?> createCategory(@Valid @RequestBody CategoryCreateRequest request){
+        Category category = categoryService.createCategory(request);
+        return ResponseEntity.ok(category);
     }
 
-    @PutMapping("update/{id}")
-    public Category updateCategory(@PathVariable Integer id, @RequestBody Category category) {
-        return categoryService.updateCategory(id, category);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateCategory(@PathVariable Integer id, @Valid @RequestBody CategoryCreateRequest request){
+        Category category = categoryService.updateCategory(id, request);
+        return ResponseEntity.ok(category);
     }
 
-    @DeleteMapping("delete/{id}")
-    public boolean deleteCategory(@PathVariable Integer id) {
-        return categoryService.deleteCategory(id);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+        categoryService.deleteCategory(id);
+        return ResponseEntity.ok("soa thanh cong");
     }
 
-    @GetMapping("list")
-    public List<Category> getAllCategories() {
-        return categoryService.getAll();
+
+    @GetMapping("/")
+    public ResponseEntity<?> getListCategory(){
+        List<Category> categories = categoryService.getAll();
+        return ResponseEntity.ok(categories);
     }
 
     @GetMapping("/{id}")
     public Category getCategoryById(@PathVariable Integer id) {
-        return categoryService.get(id);
+        return Service.get(id);
     }
 
     @GetMapping("/hihi")

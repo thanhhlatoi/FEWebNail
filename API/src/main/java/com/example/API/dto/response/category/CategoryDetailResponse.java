@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CategoryDetailResponse {
-    private Integer id;
 
     private String name;
 }

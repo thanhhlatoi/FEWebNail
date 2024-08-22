@@ -1,14 +1,9 @@
 package com.example.API.repository;
 
-import com.example.API.entity.Category;
+import com.example.API.entity.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import org.springframework.stereotype.Repository;
 
-
-
 @Repository
-public interface CategoryRepository extends JpaRepository<Category,Integer> {
-
-
+public interface CartRepository extends JpaRepository<Cart,Integer> {
 }
