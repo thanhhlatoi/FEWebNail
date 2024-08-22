@@ -1,0 +1,12 @@
+<div class="pagination">
+    <a href="#" class="prev" (click)="changePage(currentPage - 1)" [class.disabled]="currentPage === 1">« Previous</a>
+    
+    <a *ngFor="let page of pagesArray" href="#" class="page" 
+       [class.active]="page === currentPage" 
+       (click)="changePage(page)">
+      {{ page }}
+    </a>
+    
+    <a href="#" class="next" (click)="changePage(currentPage + 1)" [class.disabled]="currentPage === totalPages">Next »</a>
+  </div>
+  

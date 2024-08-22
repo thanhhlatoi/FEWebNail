@@ -1,0 +1,105 @@
+<p-dialog [(visible)]="authModal" [style]="{width: '30vw'}"  [baseZIndex]="10000" [modal]="true" [dismissableMask]="true">
+    <p-tabView>
+        <p-tabPanel header="Đăng nhập">
+            <div class="p-field">
+                <label for="username">Tên đăng nhập: </label>
+                <input type="text" pInputText class="w-full"  name="username">
+              </div>
+              <div class="p-field">
+                <label for="password">Mật khẩu: </label>
+                <input type="password" pPassword class="w-full"  name="password">
+              </div>
+              <div class="p-field mt-3">
+                <button type="submit" pButton (click)="login()">Đăng nhập</button>
+              </div>
+        </p-tabPanel>
+        <p-tabPanel header="Đăng ký">
+            <form action="">
+                <div class="p-field">
+                    <label for="username">Tên đăng nhập: </label>
+                    <input type="text" pInputText class="w-full"  name="username">
+                </div>
+                <div class="p-field">
+                    <label for="email">Email: </label>
+                    <input type="email" pInputText class="w-full"  name="email">
+                </div>
+                <div class="p-field">
+                    <label for="password">Mật khẩu: </label>
+                    <input type="password" pPassword  class="w-full"  name="password">
+                </div>
+                <div class="p-field mt-3">
+                    <button type="submit" pButton (click)="register()">Đăng ký</button>
+                </div>
+              </form>
+        </p-tabPanel>
+    </p-tabView>
+</p-dialog>
+
+
+
+
+
+<header class="bg-[#b2b2b2]">
+    <div class="container mx-auto flex gap-4 items-center p-2">
+        <img src="https://talanails.net/upload/logo/logo-69-ytPDQ.png" alt="TaLa Nails" class="max-h-10" />
+        <div class=" flex ml-[500px]">
+            <a routerLink="" class="text-[#ffffff] hover:text-[#cd8c00] m-3">Home</a>
+            <a routerLink="/info" class="text-[#ffffff] hover:text-[#cd8c00] m-3">Info</a>
+            <a routerLink="/service" class="text-[#ffffff] hover:text-[#cd8c00] m-3">Service</a>
+            <div class="text-white p-3">
+                <p>Xin chào</p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="header__cart">
+                <ul>                                    
+                    <li>
+                        <a href="javascript:void(0)" (click)="showAuthForm()" *ngIf="!isLoggedIn"><fa-icon [icon]="userIcon"></fa-icon></a>
+                        <a href="javascript:void(0)" (click)="profile.toggle($event)" *ngIf="isLoggedIn"><fa-icon [icon]="userIcon"></fa-icon></a>
+                        <p-overlayPanel #profile>
+                            <div >
+                                <a class="dropdown-item" href="javascript:void(0)" routerLink="/user" >
+                                    <fa-icon [icon]="userIcon"></fa-icon>   
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="javascript:void(0)" routerLink="my-order">
+                                    <fa-icon [icon]="bag"></fa-icon>   
+                                    My Orders
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" (click)="logout();profile.toggle($event)" >
+                                    <fa-icon [icon]="logoutIcon"></fa-icon>
+                                    Logout
+                                </a>
+                            </div>
+                        </p-overlayPanel>
+                    </li>
+                    
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- <li>
+    <a href="javascript:void(0)" (click)="showAuthForm()" *ngIf="!isLoggedIn"><fa-icon [icon]="userIcon"></fa-icon></a>
+    <a href="javascript:void(0)" (click)="profile.toggle($event)" *ngIf="isLoggedIn"><fa-icon [icon]="userIcon"></fa-icon></a>
+    <p-overlayPanel #profile>
+        <div >
+            <a class="dropdown-item" href="javascript:void(0)" routerLink="/user" >
+                <fa-icon [icon]="userIcon"></fa-icon>   
+                Profile
+            </a>
+            <a class="dropdown-item" href="javascript:void(0)" routerLink="my-order">
+                <fa-icon [icon]="bag"></fa-icon>   
+                My Orders
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout();profile.toggle($event)" >
+                <fa-icon [icon]="logoutIcon"></fa-icon>
+                Logout
+            </a>
+        </div>
+    </p-overlayPanel>
+</li> -->

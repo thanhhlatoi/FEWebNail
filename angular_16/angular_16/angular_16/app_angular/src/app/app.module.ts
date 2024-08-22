@@ -13,8 +13,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { SlideProductComponent } from './component/slide-product/slide-product.component';
 import { NewProductComponent } from './component/new-product/new-product.component';
 import { NewCategoryComponent } from './component/new-category/new-category.component';
-
-
+import { PaginationComponent } from './component/pagination/pagination.component';
+import { ServiceComponent } from './page/service/service.component';
+import { ProductComponent } from './page/product/product.component';
+import { LoginComponent } from './component/login/login.component';
+import {DialogModule} from 'primeng/dialog';
+import {ButtonModule} from 'primeng/button';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {InputTextModule} from 'primeng/inputtext';
+import {TabViewModule} from 'primeng/tabview';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,13 +32,20 @@ import { NewCategoryComponent } from './component/new-category/new-category.comp
     FooterComponent,
     SlideProductComponent,
     NewProductComponent,
-    NewCategoryComponent
+    NewCategoryComponent,
+    PaginationComponent,
+    ServiceComponent,
+    ProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterOutlet,
-    HttpClientModule
+    HttpClientModule,
+    DialogModule,
+    ButtonModule, 
+    TabViewModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
